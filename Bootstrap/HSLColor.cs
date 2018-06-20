@@ -6,6 +6,7 @@ using Xunit;
 
 namespace Bootstrap
 {
+    [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class HslColorTests
     {
         [Fact]
@@ -24,10 +25,23 @@ namespace Bootstrap
         [Fact]
         public void Darken()
         {
-            AssertDarken("#FF80E619", 20f, "#FF4D8A0F");
+            AssertDarken("#FF80E619", 20.0, "#FF4D8A0F");
+            
+            AssertDarken("#428BCA", 6.5, "#337AB7");
         }
 
-        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
+        [Fact]
+        public void Lighten()
+        {
+            AssertLighten("#000000", 13.5, "#222222");
+            AssertLighten("#000000", 20.0, "#333333");
+            AssertLighten("#000000", 33.5, "#555555");
+            AssertLighten("#000000", 46.7, "#777777");
+            AssertLighten("#000000", 93.5, "#EEEEEE");
+
+            AssertLighten("#FF80E619", 20.0, "#FFB3F075");
+        }
+
         private static void AssertRgbaToHsla(string hex, int h, int s, int l, int a)
         {
             var rgb = (Color)ColorConverter.ConvertFromString(hex);
@@ -38,7 +52,6 @@ namespace Bootstrap
             );
         }
 
-        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         private static void AssertRgbaToHslaToRgba(string hex)
         {
             var expected = (Color)ColorConverter.ConvertFromString(hex);
@@ -48,8 +61,7 @@ namespace Bootstrap
             Assert.Equal(expected, actual);
         }
 
-        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-        private static void AssertDarken(string hexFrom, float percent, string hexTo)
+        private static void AssertDarken(string hexFrom, double percent, string hexTo)
         {
             var from = (Color)ColorConverter.ConvertFromString(hexFrom);
             var to = (Color)ColorConverter.ConvertFromString(hexTo);
@@ -60,30 +72,42 @@ namespace Bootstrap
 
             Assert.Equal(to, actual);
         }
+
+        private static void AssertLighten(string hexFrom, double percent, string hexTo)
+        {
+            var from = (Color)ColorConverter.ConvertFromString(hexFrom);
+            var to = (Color)ColorConverter.ConvertFromString(hexTo);
+
+            var hsl = new HslColor(from);
+            var darken = hsl.Lighten(percent);
+            var actual = darken.Rgba;
+
+            Assert.Equal(to, actual);
+        }
     }
 
     [DebuggerDisplay("H:{Hue} S:{Saturation} L:{Luminance} A:{Alpha}")]
     public class HslColor
     {
-        private const float FloatTolerance = 0.001f;
+        private const double Epsilon = 1E-7;
 
-        private readonly float[] _hsl;
-        private readonly float _alpha;
+        private readonly double[] _hsl;
+        private readonly double _alpha;
 
         public HslColor(Color rgb)
         {
             _hsl = FromRgb(rgb);
-            _alpha = rgb.A / 255f;
+            _alpha = rgb.A / 255.0;
         }
 
-        public HslColor(float h, float s, float l, float a)
+        public HslColor(double h, double s, double l, double a)
         {
             _hsl = new[] { h, s, l };
             _alpha = a;
         }
 
-        public HslColor(float h, float s, float l)
-            : this(h, s, l, 1f)
+        public HslColor(double h, double s, double l)
+            : this(h, s, l, 1)
         { }
 
         public int Hue
@@ -111,57 +135,52 @@ namespace Bootstrap
             get { return ToRgb(_hsl, _alpha); }
         }
 
-        public static float[] FromRgb(Color color)
+        public static double[] FromRgb(Color color)
         {
             //  Get RGB values in the range 0 - 1
 
-            float[] rgb = { color.R / 255f, color.G / 255f, color.B / 255f };
-            float r = rgb[0];
-            float g = rgb[1];
-            float b = rgb[2];
+            double[] rgb = { color.R / 255.0, color.G / 255.0, color.B / 255.0 };
+            double r = rgb[0];
+            double g = rgb[1];
+            double b = rgb[2];
 
             //	Minimum and Maximum RGB values are used in the HSL calculations
 
-            float min = Math.Min(r, Math.Min(g, b));
-            float max = Math.Max(r, Math.Max(g, b));
+            double min = Math.Min(r, Math.Min(g, b));
+            double max = Math.Max(r, Math.Max(g, b));
 
             //  Calculate the Hue
 
-            float h = 0;
+            double h = 0;
 
-            if (Math.Abs(max - min) < FloatTolerance)
+            if (Math.Abs(max - min) < Epsilon)
                 h = 0;
-            else if (Math.Abs(max - r) < FloatTolerance)
+            else if (Math.Abs(max - r) < Epsilon)
                 h = ((60 * (g - b) / (max - min)) + 360) % 360;
-            else if (Math.Abs(max - g) < FloatTolerance)
+            else if (Math.Abs(max - g) < Epsilon)
                 h = (60 * (b - r) / (max - min)) + 120;
-            else if (Math.Abs(max - b) < FloatTolerance)
+            else if (Math.Abs(max - b) < Epsilon)
                 h = (60 * (r - g) / (max - min)) + 240;
 
             //  Calculate the Luminance
 
-            float l = (max + min) / 2;
+            double l = (max + min) / 2;
 
             //  Calculate the Saturation
 
-            float s = 0;
+            double s;
 
-            if (Math.Abs(max - min) < FloatTolerance)
+            if (Math.Abs(max - min) < Epsilon)
                 s = 0;
-            else if (l <= .5f)
+            else if (l <= .5)
                 s = (max - min) / (max + min);
             else
                 s = (max - min) / (2 - max - min);
 
-            return new[]
-            {
-                (float)Math.Round(h, 0),
-                (float)Math.Round(s * 100),
-                (float)Math.Round(l * 100)
-            };
+            return new[] { h, s * 100, l * 100 };
         }
 
-        public HslColor Darken(float percent)
+        public HslColor Darken(double percent)
         {
             _hsl[2] -= percent;
             _hsl[2] = Math.Min(100, Math.Max(0, _hsl[2]));
@@ -169,56 +188,64 @@ namespace Bootstrap
             return this;
         }
 
-        public static Color ToRgb(float[] hsl, float alpha)
+        public HslColor Lighten(double percent)
+        {
+            _hsl[2] += percent;
+            _hsl[2] = Math.Min(100, Math.Max(0, _hsl[2]));
+
+            return this;
+        }
+
+        public static Color ToRgb(double[] hsl, double alpha)
         {
             return ToRgb(hsl[0], hsl[1], hsl[2], alpha);
         }
 
-        public static Color ToRgb(float h, float s, float l, float alpha)
+        public static Color ToRgb(double h, double s, double l, double alpha)
         {
-            if (s < 0.0f || s > 100.0f)
+            if (s < 0.0 || s > 100.0)
                 throw new ArgumentOutOfRangeException(nameof(s));
 
-            if (l < 0.0f || l > 100.0f)
+            if (l < 0.0 || l > 100.0)
                 throw new ArgumentOutOfRangeException(nameof(l));
 
-            if (alpha < 0.0f || alpha > 1.0f)
+            if (alpha < 0.0 || alpha > 1.0)
                 throw new ArgumentOutOfRangeException(nameof(alpha));
 
             //  Formula needs all values between 0 - 1.
 
-            h = h % 360.0f;
-            h /= 360f;
-            s /= 100f;
-            l /= 100f;
+            h = h % 360.0;
+            h /= 360.0;
+            s /= 100.0;
+            l /= 100.0;
 
-            float q = 0;
+            double q;
 
             if (l < 0.5)
                 q = l * (1 + s);
             else
                 q = (l + s) - (s * l);
 
-            float p = 2 * l - q;
+            double p = 2 * l - q;
 
-            float r = Math.Max(0, HueToRgb(p, q, h + (1.0f / 3.0f)));
-            float g = Math.Max(0, HueToRgb(p, q, h));
-            float b = Math.Max(0, HueToRgb(p, q, h - (1.0f / 3.0f)));
+            double r = Math.Max(0, HueToRgb(p, q, h + (1.0 / 3.0)));
+            double g = Math.Max(0, HueToRgb(p, q, h));
+            double b = Math.Max(0, HueToRgb(p, q, h - (1.0 / 3.0)));
 
-            r = Math.Min(r, 1.0f);
-            g = Math.Min(g, 1.0f);
-            b = Math.Min(b, 1.0f);
+            r = Math.Min(r, 1.0);
+            g = Math.Min(g, 1.0);
+            b = Math.Min(b, 1.0);
 
             // return Color.FromScRgb(alpha, r, g, b);
             return Color.FromArgb(
-                (byte)(alpha * byte.MaxValue),
-                (byte)(r * byte.MaxValue),
-                (byte)(g * byte.MaxValue),
-                (byte)(b * byte.MaxValue)
+                (byte)Math.Round(alpha * byte.MaxValue, 0),
+                (byte)Math.Round(r * byte.MaxValue, 0),
+                (byte)Math.Round(g * byte.MaxValue, 0),
+                (byte)Math.Round(b * byte.MaxValue, 0)
             );
         }
 
-        private static float HueToRgb(float p, float q, float h)
+        private static double HueToRgb(double p, double q, double h)
         {
             if (h < 0) h += 1;
             if (h > 1) h -= 1;
@@ -230,7 +257,7 @@ namespace Bootstrap
                 return q;
 
             if (3 * h < 2)
-                return p + ((q - p) * 6 * ((2.0f / 3.0f) - h));
+                return p + ((q - p) * 6 * ((2.0 / 3.0) - h));
 
             return p;
         }
