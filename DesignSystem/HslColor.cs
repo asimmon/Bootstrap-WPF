@@ -1,93 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Windows.Media;
-using Xunit;
 
-namespace Bootstrap
+namespace DesignSystem
 {
-    [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-    public class HslColorTests
-    {
-        [Fact]
-        public void RgbaToHsla()
-        {
-            AssertRgbaToHsla("#FF69ECC7", h: 163, s: 78, l: 67, a: 100);
-            AssertRgbaToHsla("#DC69ECC7", h: 163, s: 78, l: 67, a: 86);
-        }
-
-        [Fact]
-        public void RgbaToHslaThenBackToRgba()
-        {
-            AssertRgbaToHslaToRgba("#FF69ECC7");
-        }
-
-        [Fact]
-        public void Darken()
-        {
-            AssertDarken("#FF80E619", 20.0, "#FF4D8A0F");
-            
-            AssertDarken("#428BCA", 6.5, "#337AB7");
-        }
-
-        [Fact]
-        public void Lighten()
-        {
-            AssertLighten("#000000", 13.5, "#222222");
-            AssertLighten("#000000", 20.0, "#333333");
-            AssertLighten("#000000", 33.5, "#555555");
-            AssertLighten("#000000", 46.7, "#777777");
-            AssertLighten("#000000", 93.5, "#EEEEEE");
-
-            AssertLighten("#FF80E619", 20.0, "#FFB3F075");
-        }
-
-        private static void AssertRgbaToHsla(string hex, int h, int s, int l, int a)
-        {
-            var rgb = (Color)ColorConverter.ConvertFromString(hex);
-            var hsl = new HslColor(rgb);
-            Assert.Equal(
-                new[] { h, s, l, a },
-                new[] { hsl.Hue, hsl.Saturation, hsl.Luminance, hsl.Alpha }
-            );
-        }
-
-        private static void AssertRgbaToHslaToRgba(string hex)
-        {
-            var expected = (Color)ColorConverter.ConvertFromString(hex);
-            var hsl = new HslColor(expected);
-            var actual = hsl.Rgba;
-
-            Assert.Equal(expected, actual);
-        }
-
-        private static void AssertDarken(string hexFrom, double percent, string hexTo)
-        {
-            var from = (Color)ColorConverter.ConvertFromString(hexFrom);
-            var to = (Color)ColorConverter.ConvertFromString(hexTo);
-
-            var hsl = new HslColor(from);
-            var darken = hsl.Darken(percent);
-            var actual = darken.Rgba;
-
-            Assert.Equal(to, actual);
-        }
-
-        private static void AssertLighten(string hexFrom, double percent, string hexTo)
-        {
-            var from = (Color)ColorConverter.ConvertFromString(hexFrom);
-            var to = (Color)ColorConverter.ConvertFromString(hexTo);
-
-            var hsl = new HslColor(from);
-            var darken = hsl.Lighten(percent);
-            var actual = darken.Rgba;
-
-            Assert.Equal(to, actual);
-        }
-    }
-
-    [DebuggerDisplay("H:{Hue} S:{Saturation} L:{Luminance} A:{Alpha}")]
-    public class HslColor
+    [DebuggerDisplay("H:{Hue} S:{Saturation} L:{Lightness} A:{Alpha}")]
+    internal class HslColor
     {
         private const double Epsilon = 1E-7;
 
@@ -120,7 +38,7 @@ namespace Bootstrap
             get { return (int)Math.Round(_hsl[1], 0); }
         }
 
-        public int Luminance
+        public int Lightness
         {
             get { return (int)Math.Round(_hsl[2], 0); }
         }
@@ -162,7 +80,7 @@ namespace Bootstrap
             else if (Math.Abs(max - b) < Epsilon)
                 h = (60 * (r - g) / (max - min)) + 240;
 
-            //  Calculate the Luminance
+            //  Calculate the Lightness
 
             double l = (max + min) / 2;
 
@@ -180,17 +98,43 @@ namespace Bootstrap
             return new[] { h, s * 100, l * 100 };
         }
 
-        public HslColor Darken(double percent)
+        public HslColor Darken(double percentage)
         {
-            _hsl[2] -= percent;
+            return Darken(percentage, false);
+        }
+
+        public HslColor DarkenRelative(double percentage)
+        {
+            return Darken(percentage, true);
+        }
+
+        private HslColor Darken(double percentage, bool isRelative)
+        {
+            _hsl[2] -= isRelative
+                ? _hsl[2] * percentage / 100
+                : percentage;
+
             _hsl[2] = Math.Min(100, Math.Max(0, _hsl[2]));
 
             return this;
         }
 
-        public HslColor Lighten(double percent)
+        public HslColor Lighten(double percentage)
         {
-            _hsl[2] += percent;
+            return Lighten(percentage, false);
+        }
+
+        public HslColor LightenRelative(double percentage)
+        {
+            return Lighten(percentage, true);
+        }
+
+        public HslColor Lighten(double percentage, bool isRelative)
+        {
+            _hsl[2] += isRelative
+                ? _hsl[2] * percentage / 100
+                : percentage;
+
             _hsl[2] = Math.Min(100, Math.Max(0, _hsl[2]));
 
             return this;
