@@ -5,5 +5,5 @@
         <ResourceDictionary Source="Styles/Variables.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource RegularButtonStyle}" />
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}" />
 </ResourceDictionary>

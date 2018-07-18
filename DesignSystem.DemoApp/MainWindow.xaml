@@ -6,7 +6,14 @@
         xmlns:local="clr-namespace:DesignSystem.DemoApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Something" HorizontalAlignment="Center" VerticalAlignment="Center" />
-    </Grid>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button Content="Something" Margin="10" />
+        <Button Content="Something" Margin="10" IsEnabled="False" />
+
+        <Button Content="Something" Margin="10" Style="{StaticResource ButtonMediumPrimaryStyle}" />
+        <Button Content="Something" Margin="10" Style="{StaticResource ButtonMediumPrimaryStyle}" IsEnabled="False" />
+        
+        <Button Content="Something" Margin="10" Style="{StaticResource LinkButtonMediumDefaultStyle}" />
+        <Button Content="Something" Margin="10" Style="{StaticResource LinkButtonMediumPrimaryStyle}" />
+    </StackPanel>
 </Window>
