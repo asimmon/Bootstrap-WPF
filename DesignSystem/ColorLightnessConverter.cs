@@ -43,7 +43,9 @@ namespace DesignSystem
         private double TryCastToPercentage(object potentialPercentage)
         {
             double percentage = -1.0;
-            if (potentialPercentage is double)
+            if (potentialPercentage is string)
+                percentage = double.Parse((string)potentialPercentage);
+            else if (potentialPercentage is double)
                 percentage = (double)potentialPercentage;
             else if (potentialPercentage is float)
                 percentage = (float)potentialPercentage;
