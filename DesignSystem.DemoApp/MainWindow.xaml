@@ -3,17 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DesignSystem.DemoApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button Content="Something" Margin="10" />
-        <Button Content="Something" Margin="10" IsEnabled="False" />
+        Title="MainWindow" Height="600" Width="450">
+    <ScrollViewer>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Something" Margin="5" />
+            <Button Content="Something" Margin="5" IsEnabled="False" />
 
-        <Button Content="Something" Margin="10" Style="{StaticResource ButtonMediumPrimaryStyle}" />
-        <Button Content="Something" Margin="10" Style="{StaticResource ButtonMediumPrimaryStyle}" IsEnabled="False" />
-        
-        <Button Content="Something" Margin="10" Style="{StaticResource LinkButtonMediumDefaultStyle}" />
-        <Button Content="Something" Margin="10" Style="{StaticResource LinkButtonMediumPrimaryStyle}" />
-    </StackPanel>
+            <Button Content="Something" Margin="5" Style="{StaticResource ButtonMediumPrimaryStyle}" />
+            <Button Content="Something" Margin="5" Style="{StaticResource ButtonMediumPrimaryStyle}" IsEnabled="False" />
+
+            <Button Content="Something" Margin="5" Style="{StaticResource ButtonMediumSuccessStyle}" />
+            <Button Content="Something" Margin="5" Style="{StaticResource ButtonMediumSuccessStyle}" IsEnabled="False" />
+
+            <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonMediumDefaultStyle}" />
+            <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonMediumPrimaryStyle}" />
+        </StackPanel>
+    </ScrollViewer>
 </Window>
