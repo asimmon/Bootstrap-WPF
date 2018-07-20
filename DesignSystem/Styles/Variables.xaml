@@ -55,6 +55,8 @@
     <sys:Double x:Key="PaddingBaseHorizontal">12</sys:Double>
 
     <CornerRadius x:Key="BorderRadiusBase" TopLeft="4" TopRight="4" BottomRight="4" BottomLeft="4" />
+    <CornerRadius x:Key="BorderRadiusLarge" TopLeft="6" TopRight="6" BottomRight="6" BottomLeft="6" />
+    <CornerRadius x:Key="BorderRadiusSmall" TopLeft="3" TopRight="3" BottomRight="3" BottomLeft="3" />
 
     <!-- Buttons -->
 
@@ -74,48 +76,45 @@
         <Setter Property="FontSize" Value="{StaticResource FontSizeBase}" />
         <Setter Property="FontFamily" Value="{StaticResource FontFamilyBase}" />
         <Setter Property="TextBlock.LineHeight" Value="20" />
+        <Setter Property="TextBlock.TextDecorations" Value="None" />
         <Setter Property="Padding" Value="12,8,12,4" />
         <Setter Property="Foreground" Value="{StaticResource ButtonDefaultColorBrush}" />
         <Setter Property="Background" Value="{StaticResource ButtonDefaultBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource ButtonDefaultBorderBrush}" />
-        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Focusable" Value="False" />
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                    <Grid x:Name="PART_Root" UseLayoutRounding="True" SnapsToDevicePixels="True">
                         <Grid.Resources>
                             <SolidColorBrush x:Key="BackgroundHover" Color="{Binding Background.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DarkenConverter}, ConverterParameter=10, Mode=OneTime}" />
                             <SolidColorBrush x:Key="BorderBrushHover" Color="{Binding BorderBrush.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DarkenConverter}, ConverterParameter=12, Mode=OneTime}" />
                             <SolidColorBrush x:Key="BackgroundPressed" Color="{Binding Background.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DarkenConverter}, ConverterParameter=17, Mode=OneTime}" />
                             <SolidColorBrush x:Key="BorderBrushPressed" Color="{Binding BorderBrush.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DarkenConverter}, ConverterParameter=25, Mode=OneTime}" />
                         </Grid.Resources>
-                        <Border x:Name="PART_Background" CornerRadius="{TemplateBinding Border.CornerRadius}" Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" ClipToBounds="True">
-                            <Border
-                                x:Name="PART_Border"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                CornerRadius="{TemplateBinding Border.CornerRadius}"
-                                Background="Transparent"
-                                Padding="{TemplateBinding Padding}"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                                <Border.Effect>
-                                    <DropShadowEffect ShadowDepth="0" BlurRadius="5" RenderingBias="Performance" Opacity="0" />
-                                </Border.Effect>
-                                <ContentPresenter
-                                    TextBlock.Foreground="{TemplateBinding Foreground}"
-                                    TextBlock.LineHeight="{TemplateBinding TextBlock.LineHeight}"
-                                    TextBlock.FontSize="{TemplateBinding FontSize}"
-                                    TextBlock.FontFamily="{TemplateBinding FontFamily}"
-                                    TextBlock.FontWeight="{TemplateBinding FontWeight}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    Content="{TemplateBinding Content}"
-                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                            </Border>
-                        </Border>
+
+                        <Border
+                            x:Name="PART_Background"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}"
+                            Background="{TemplateBinding Background}" />
+
+                        <Border
+                            x:Name="PART_Border"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}" />
+
+                        <TextBlock
+                            Foreground="{TemplateBinding Foreground}"
+                            LineHeight="{TemplateBinding TextBlock.LineHeight}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"
+                            Text="{TemplateBinding Content}" />
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -146,17 +145,12 @@
                                             Storyboard.TargetProperty="BorderBrush.(SolidColorBrush.Color)"
                                             To="{Binding Color, Source={StaticResource BorderBrushPressed}, Mode=OneTime}"
                                             Duration="0" />
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="PART_Border"
-                                            Storyboard.TargetProperty="Effect.(DropShadowEffect.Opacity)"
-                                            To="0.125"
-                                            Duration="0" />
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
                                         <DoubleAnimation
-                                            Storyboard.TargetName="PART_Background"
+                                            Storyboard.TargetName="PART_Root"
                                             Storyboard.TargetProperty="Opacity"
                                             To="0.6"
                                             Duration="0" />
@@ -176,30 +170,110 @@
 
     <Style x:Key="ButtonMediumPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
         <Style.Resources>
-            <SolidColorBrush x:Key="ButtonPrimaryColorBrush" Color="#FFFFFFFF" />
-            <SolidColorBrush x:Key="ButtonPrimaryBackgroundBrush" Color="{Binding Color, Source={StaticResource BrandPrimaryBrush}, Mode=OneTime}" />
-            <SolidColorBrush x:Key="ButtonPrimaryBorderBrush" Color="{Binding Color, Source={StaticResource ButtonPrimaryBackgroundBrush}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandPrimaryBrush}, Mode=OneTime}" />
+            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
         </Style.Resources>
 
-        <Setter Property="Foreground" Value="{StaticResource ButtonPrimaryColorBrush}" />
-        <Setter Property="Background" Value="{StaticResource ButtonPrimaryBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{StaticResource ButtonPrimaryBorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+        <Setter Property="Background" Value="{StaticResource Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
     </Style>
 
-    <Style x:Key="ButtonMediumSuccessStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
-        <Style.Resources>
-            <SolidColorBrush x:Key="ButtonSuccessColorBrush" Color="#FFFFFFFF" />
-            <SolidColorBrush x:Key="ButtonSuccessBackgroundBrush" Color="{Binding Color, Source={StaticResource BrandSuccessBrush}, Mode=OneTime}" />
-            <SolidColorBrush x:Key="ButtonSuccessBorderBrush" Color="{Binding Color, Source={StaticResource ButtonSuccessBackgroundBrush}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
-        </Style.Resources>
+    <Style x:Key="ButtonLargePrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumPrimaryStyle}">
+        <Setter Property="Padding" Value="16,11,16,9" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="TextBlock.LineHeight" Value="24" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
+    </Style>
 
-        <Setter Property="Foreground" Value="{StaticResource ButtonSuccessColorBrush}" />
-        <Setter Property="Background" Value="{StaticResource ButtonSuccessBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{StaticResource ButtonSuccessBorderBrush}" />
+    <Style x:Key="ButtonSmallPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumPrimaryStyle}">
+        <Setter Property="Padding" Value="10,7,10,3" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
+        <Setter Property="TextBlock.LineHeight" Value="18" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
     </Style>
 
     <Style x:Key="LinkButtonMediumPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
         <Setter Property="Foreground" Value="{StaticResource BrandPrimaryBrush}" />
+    </Style>
+
+    <Style x:Key="LinkButtonLargePrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumPrimaryStyle}">
+        <Setter Property="Padding" Value="16,11,16,9" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="TextBlock.LineHeight" Value="24" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
+    </Style>
+
+    <Style x:Key="LinkButtonSmallPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumPrimaryStyle}">
+        <Setter Property="Padding" Value="10,7,10,3" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
+        <Setter Property="TextBlock.LineHeight" Value="18" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
+    </Style>
+
+    <Style x:Key="ButtonMediumSuccessStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumPrimaryStyle}">
+        <Style.Resources>
+            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandSuccessBrush}, Mode=OneTime}" />
+            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+        </Style.Resources>
+
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+        <Setter Property="Background" Value="{StaticResource Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+    </Style>
+
+    <Style x:Key="LinkButtonMediumSuccessStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="{StaticResource BrandSuccessBrush}" />
+    </Style>
+
+    <Style x:Key="ButtonMediumDangerStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
+        <Style.Resources>
+            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandDangerBrush}, Mode=OneTime}" />
+            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+        </Style.Resources>
+
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+        <Setter Property="Background" Value="{StaticResource Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+    </Style>
+
+    <Style x:Key="LinkButtonMediumDangerStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="{StaticResource BrandDangerBrush}" />
+    </Style>
+
+    <Style x:Key="ButtonMediumInfoStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
+        <Style.Resources>
+            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandInfoBrush}, Mode=OneTime}" />
+            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+        </Style.Resources>
+
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+        <Setter Property="Background" Value="{StaticResource Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+    </Style>
+
+    <Style x:Key="LinkButtonMediumInfoStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="{StaticResource BrandInfoBrush}" />
+    </Style>
+
+    <Style x:Key="ButtonMediumWarningStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
+        <Style.Resources>
+            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandWarningBrush}, Mode=OneTime}" />
+            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+        </Style.Resources>
+
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+        <Setter Property="Background" Value="{StaticResource Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+    </Style>
+
+    <Style x:Key="LinkButtonMediumWarningStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="{StaticResource BrandWarningBrush}" />
     </Style>
 
 </ResourceDictionary>
