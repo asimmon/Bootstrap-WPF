@@ -192,19 +192,13 @@
 
     <Style x:Key="ButtonLargePrimaryStyle" TargetType="{x:Type Button}">
         <Style.BasedOn>
-            <ds:MergedStyle>
-                <StaticResource ResourceKey="ButtonMediumPrimaryStyle" />
-                <StaticResource ResourceKey="BaseButtonLargeSetters" />
-            </ds:MergedStyle>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumPrimaryStyle}" Style2="{StaticResource BaseButtonLargeSetters}" />
         </Style.BasedOn>
     </Style>
 
     <Style x:Key="ButtonSmallPrimaryStyle" TargetType="{x:Type Button}">
         <Style.BasedOn>
-            <ds:MergedStyle>
-                <StaticResource ResourceKey="ButtonMediumPrimaryStyle" />
-                <StaticResource ResourceKey="BaseButtonSmallSetters" />
-            </ds:MergedStyle>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumPrimaryStyle}" Style2="{StaticResource BaseButtonSmallSetters}" />
         </Style.BasedOn>
     </Style>
 
@@ -214,19 +208,13 @@
 
     <Style x:Key="LinkButtonLargePrimaryStyle" TargetType="{x:Type Button}">
         <Style.BasedOn>
-            <ds:MergedStyle>
-                <StaticResource ResourceKey="ButtonMediumPrimaryStyle" />
-                <StaticResource ResourceKey="BaseButtonLargeSetters" />
-            </ds:MergedStyle>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumPrimaryStyle}" Style2="{StaticResource BaseButtonLargeSetters}" />
         </Style.BasedOn>
     </Style>
 
     <Style x:Key="LinkButtonSmallPrimaryStyle" TargetType="{x:Type Button}">
         <Style.BasedOn>
-            <ds:MergedStyle>
-                <StaticResource ResourceKey="ButtonMediumPrimaryStyle" />
-                <StaticResource ResourceKey="BaseButtonSmallSetters" />
-            </ds:MergedStyle>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumPrimaryStyle}" Style2="{StaticResource BaseButtonSmallSetters}" />
         </Style.BasedOn>
     </Style>
 
