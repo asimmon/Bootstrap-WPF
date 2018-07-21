@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArithmeticConverter.cs" />
+    <Compile Include="MergedStyleExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +74,7 @@
     </Compile>
     <Compile Include="ColorLightnessConverter.cs" />
     <Compile Include="HslColor.cs" />
+    <Compile Include="StyleExtensions.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

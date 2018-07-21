@@ -149,11 +149,7 @@
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="PART_Root"
-                                            Storyboard.TargetProperty="Opacity"
-                                            To="0.6"
-                                            Duration="0" />
+                                        <DoubleAnimation Storyboard.TargetName="PART_Root" Storyboard.TargetProperty="Opacity" To="0.6" Duration="0" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -162,6 +158,20 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="BaseButtonSmallSetters" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="10,7,10,3" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
+        <Setter Property="TextBlock.LineHeight" Value="18" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
+    </Style>
+
+    <Style x:Key="BaseButtonLargeSetters" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="16,11,16,9" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="TextBlock.LineHeight" Value="24" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
     </Style>
 
     <Style x:Key="LinkButtonMediumDefaultStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
@@ -180,39 +190,47 @@
         <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
     </Style>
 
-    <Style x:Key="ButtonLargePrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumPrimaryStyle}">
-        <Setter Property="Padding" Value="16,11,16,9" />
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="TextBlock.LineHeight" Value="24" />
-        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
+    <Style x:Key="ButtonLargePrimaryStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle>
+                <StaticResource ResourceKey="ButtonMediumPrimaryStyle" />
+                <StaticResource ResourceKey="BaseButtonLargeSetters" />
+            </ds:MergedStyle>
+        </Style.BasedOn>
     </Style>
 
-    <Style x:Key="ButtonSmallPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumPrimaryStyle}">
-        <Setter Property="Padding" Value="10,7,10,3" />
-        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
-        <Setter Property="TextBlock.LineHeight" Value="18" />
-        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
+    <Style x:Key="ButtonSmallPrimaryStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle>
+                <StaticResource ResourceKey="ButtonMediumPrimaryStyle" />
+                <StaticResource ResourceKey="BaseButtonSmallSetters" />
+            </ds:MergedStyle>
+        </Style.BasedOn>
     </Style>
 
     <Style x:Key="LinkButtonMediumPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
         <Setter Property="Foreground" Value="{StaticResource BrandPrimaryBrush}" />
     </Style>
 
-    <Style x:Key="LinkButtonLargePrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumPrimaryStyle}">
-        <Setter Property="Padding" Value="16,11,16,9" />
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="TextBlock.LineHeight" Value="24" />
-        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
+    <Style x:Key="LinkButtonLargePrimaryStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle>
+                <StaticResource ResourceKey="ButtonMediumPrimaryStyle" />
+                <StaticResource ResourceKey="BaseButtonLargeSetters" />
+            </ds:MergedStyle>
+        </Style.BasedOn>
     </Style>
 
-    <Style x:Key="LinkButtonSmallPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumPrimaryStyle}">
-        <Setter Property="Padding" Value="10,7,10,3" />
-        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
-        <Setter Property="TextBlock.LineHeight" Value="18" />
-        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
+    <Style x:Key="LinkButtonSmallPrimaryStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle>
+                <StaticResource ResourceKey="ButtonMediumPrimaryStyle" />
+                <StaticResource ResourceKey="BaseButtonSmallSetters" />
+            </ds:MergedStyle>
+        </Style.BasedOn>
     </Style>
 
-    <Style x:Key="ButtonMediumSuccessStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumPrimaryStyle}">
+    <Style x:Key="ButtonMediumSuccessStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
         <Style.Resources>
             <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
             <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandSuccessBrush}, Mode=OneTime}" />
