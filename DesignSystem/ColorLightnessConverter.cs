@@ -16,7 +16,12 @@ namespace DesignSystem
                 : ColorLightnessVariation.Lighten;
         }
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public virtual object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return Convert(value, parameter);
+        }
+
+        protected Color Convert(object value, object parameter)
         {
             var color = TryCastToColor(value);
             var percentage = TryCastToPercentage(parameter);
@@ -24,7 +29,12 @@ namespace DesignSystem
             return ApplyLightnessVariation(color, percentage, LightnessVariation);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public virtual object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return ConvertBack(value, parameter);
+        }
+
+        protected Color ConvertBack(object value, object parameter)
         {
             var color = TryCastToColor(value);
             var percentage = TryCastToPercentage(parameter);

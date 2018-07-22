@@ -3,19 +3,22 @@
                     xmlns:ds="clr-namespace:DesignSystem"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <ds:ColorLightnessConverter LightnessVariation="Lighten" x:Key="LightenConverter" />
-    <ds:ColorLightnessConverter LightnessVariation="Darken" x:Key="DarkenConverter" />
+    <ds:ColorLightnessConverter LightnessVariation="Lighten" x:Key="ColorLightenConverter" />
+    <ds:ColorLightnessConverter LightnessVariation="Darken" x:Key="ColorDarkenConverter" />
+
+    <ds:SolidColorBrushLightnessConverter LightnessVariation="Lighten" x:Key="BrushLightenConverter" />
+    <ds:SolidColorBrushLightnessConverter LightnessVariation="Darken" x:Key="BrushDarkenConverter" />
 
     <ds:ArithmeticConverter Operation="Multiplication" x:Key="MultiplicationConverter" />
 
     <!-- Colors -->
 
     <SolidColorBrush x:Key="GrayBaseBrush" Color="#FF000000" />
-    <SolidColorBrush x:Key="GrayDarkerBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource LightenConverter}, ConverterParameter=13.5, Mode=OneTime}" />
-    <SolidColorBrush x:Key="GrayDarkBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource LightenConverter}, ConverterParameter=20, Mode=OneTime}" />
-    <SolidColorBrush x:Key="GrayBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource LightenConverter}, ConverterParameter=33.5, Mode=OneTime}" />
-    <SolidColorBrush x:Key="GrayLightBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource LightenConverter}, ConverterParameter=46.7, Mode=OneTime}" />
-    <SolidColorBrush x:Key="GrayLighterBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource LightenConverter}, ConverterParameter=93.5, Mode=OneTime}" />
+    <SolidColorBrush x:Key="GrayDarkerBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource ColorLightenConverter}, ConverterParameter=13.5, Mode=OneTime}" />
+    <SolidColorBrush x:Key="GrayDarkBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource ColorLightenConverter}, ConverterParameter=20, Mode=OneTime}" />
+    <SolidColorBrush x:Key="GrayBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource ColorLightenConverter}, ConverterParameter=33.5, Mode=OneTime}" />
+    <SolidColorBrush x:Key="GrayLightBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource ColorLightenConverter}, ConverterParameter=46.7, Mode=OneTime}" />
+    <SolidColorBrush x:Key="GrayLighterBrush" Color="{Binding Color, Source={StaticResource GrayBaseBrush}, Converter={StaticResource ColorLightenConverter}, ConverterParameter=93.5, Mode=OneTime}" />
 
     <SolidColorBrush x:Key="BrandPrimaryBrush" Color="#FF337AB7" />
     <SolidColorBrush x:Key="BrandSuccessBrush" Color="#FF5CB85C" />
@@ -27,7 +30,7 @@
     <SolidColorBrush x:Key="TextColorBrush" Color="{Binding Color, Source={StaticResource GrayDarkBrush}, Mode=OneTime}" />
 
     <SolidColorBrush x:Key="LinkColorBrush" Color="{Binding Color, Source={StaticResource BrandPrimaryBrush}, Mode=OneTime}" />
-    <SolidColorBrush x:Key="LinkHoverColorBrush" Color="{Binding Color, Source={StaticResource LinkColorBrush}, Converter={StaticResource DarkenConverter}, ConverterParameter=15, Mode=OneTime}" />
+    <SolidColorBrush x:Key="LinkHoverColorBrush" Color="{Binding Color, Source={StaticResource LinkColorBrush}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=15, Mode=OneTime}" />
 
     <!-- Text -->
 
@@ -88,10 +91,10 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid x:Name="PART_Root" UseLayoutRounding="True" SnapsToDevicePixels="True">
                         <Grid.Resources>
-                            <SolidColorBrush x:Key="BackgroundHover" Color="{Binding Background.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DarkenConverter}, ConverterParameter=10, Mode=OneTime}" />
-                            <SolidColorBrush x:Key="BorderBrushHover" Color="{Binding BorderBrush.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DarkenConverter}, ConverterParameter=12, Mode=OneTime}" />
-                            <SolidColorBrush x:Key="BackgroundPressed" Color="{Binding Background.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DarkenConverter}, ConverterParameter=17, Mode=OneTime}" />
-                            <SolidColorBrush x:Key="BorderBrushPressed" Color="{Binding BorderBrush.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DarkenConverter}, ConverterParameter=25, Mode=OneTime}" />
+                            <SolidColorBrush x:Key="BackgroundHover" Color="{Binding Background.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=10, Mode=OneTime}" />
+                            <SolidColorBrush x:Key="BorderBrushHover" Color="{Binding BorderBrush.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=12, Mode=OneTime}" />
+                            <SolidColorBrush x:Key="BackgroundPressed" Color="{Binding Background.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=17, Mode=OneTime}" />
+                            <SolidColorBrush x:Key="BorderBrushPressed" Color="{Binding BorderBrush.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=25, Mode=OneTime}" />
                         </Grid.Resources>
 
                         <Border
@@ -179,15 +182,9 @@
     </Style>
 
     <Style x:Key="ButtonMediumPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
-        <Style.Resources>
-            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
-            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandPrimaryBrush}, Mode=OneTime}" />
-            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
-        </Style.Resources>
-
-        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
-        <Setter Property="Background" Value="{StaticResource Background}" />
-        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandPrimaryBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
     </Style>
 
     <Style x:Key="ButtonLargePrimaryStyle" TargetType="{x:Type Button}">
@@ -219,15 +216,9 @@
     </Style>
 
     <Style x:Key="ButtonMediumSuccessStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
-        <Style.Resources>
-            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
-            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandSuccessBrush}, Mode=OneTime}" />
-            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
-        </Style.Resources>
-
-        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
-        <Setter Property="Background" Value="{StaticResource Background}" />
-        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandSuccessBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandSuccessBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
     </Style>
 
     <Style x:Key="LinkButtonMediumSuccessStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
@@ -235,15 +226,9 @@
     </Style>
 
     <Style x:Key="ButtonMediumDangerStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
-        <Style.Resources>
-            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
-            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandDangerBrush}, Mode=OneTime}" />
-            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
-        </Style.Resources>
-
-        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
-        <Setter Property="Background" Value="{StaticResource Background}" />
-        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandDangerBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandDangerBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
     </Style>
 
     <Style x:Key="LinkButtonMediumDangerStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
@@ -251,15 +236,9 @@
     </Style>
 
     <Style x:Key="ButtonMediumInfoStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
-        <Style.Resources>
-            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
-            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandInfoBrush}, Mode=OneTime}" />
-            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
-        </Style.Resources>
-
-        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
-        <Setter Property="Background" Value="{StaticResource Background}" />
-        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandInfoBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandInfoBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
     </Style>
 
     <Style x:Key="LinkButtonMediumInfoStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
@@ -267,15 +246,9 @@
     </Style>
 
     <Style x:Key="ButtonMediumWarningStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
-        <Style.Resources>
-            <SolidColorBrush x:Key="Foreground" Color="#FFFFFFFF" />
-            <SolidColorBrush x:Key="Background" Color="{Binding Color, Source={StaticResource BrandWarningBrush}, Mode=OneTime}" />
-            <SolidColorBrush x:Key="BorderBrush" Color="{Binding Color, Source={StaticResource Background}, Converter={StaticResource DarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
-        </Style.Resources>
-
-        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
-        <Setter Property="Background" Value="{StaticResource Background}" />
-        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandWarningBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandWarningBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
     </Style>
 
     <Style x:Key="LinkButtonMediumWarningStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
