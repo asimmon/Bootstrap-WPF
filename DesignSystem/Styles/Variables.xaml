@@ -9,7 +9,7 @@
     <ds:SolidColorBrushLightnessConverter LightnessVariation="Lighten" x:Key="BrushLightenConverter" />
     <ds:SolidColorBrushLightnessConverter LightnessVariation="Darken" x:Key="BrushDarkenConverter" />
 
-    <ds:ArithmeticConverter Operation="Multiplication" x:Key="MultiplicationConverter" />
+    <ds:ArithmeticConverter Operation="Multiplication" ResultTransform="Round" x:Key="LineHeightMultiplierConverter" />
 
     <!-- Colors -->
 
@@ -50,7 +50,9 @@
     <sys:Double x:Key="FontSizeH5">14</sys:Double>
     <sys:Double x:Key="FontSizeH6">12</sys:Double>
 
-    <sys:Double x:Key="LineHeightBaseFactor">1.428571429</sys:Double>
+    <sys:Double x:Key="LineHeightFactorMedium">1.428571429</sys:Double>
+    <sys:Double x:Key="LineHeightFactorLarge">1.3333333</sys:Double>
+    <sys:Double x:Key="LineHeightFactorSmall">1.5</sys:Double>
 
     <!-- Components -->
 

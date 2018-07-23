@@ -14,7 +14,7 @@
         <Setter Property="FontWeight" Value="Regular" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeBase}" />
         <Setter Property="FontFamily" Value="{StaticResource FontFamilyBase}" />
-        <Setter Property="TextBlock.LineHeight" Value="20" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeBase}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorMedium}, Mode=OneTime}" />
         <Setter Property="Padding" Value="12,8,12,4" />
         <Setter Property="Foreground" Value="#FF333333" />
         <Setter Property="Background" Value="#FFFFFFFF" />
@@ -89,18 +89,18 @@
         </Setter>
     </Style>
 
-    <Style x:Key="_PartialButtonSmall" TargetType="{x:Type Button}">
-        <Setter Property="Padding" Value="10,7,10,3" />
-        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
-        <Setter Property="TextBlock.LineHeight" Value="18" />
-        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
-    </Style>
-
     <Style x:Key="_PartialButtonLarge" TargetType="{x:Type Button}">
         <Setter Property="Padding" Value="16,11,16,9" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="TextBlock.LineHeight" Value="24" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeLarge}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}, Mode=OneTime}" />
         <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
+    </Style>
+
+    <Style x:Key="_PartialButtonSmall" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="10,7,10,3" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeSmall}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorSmall}, Mode=OneTime}" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
     </Style>
 
     <!-- Button Medium -->
