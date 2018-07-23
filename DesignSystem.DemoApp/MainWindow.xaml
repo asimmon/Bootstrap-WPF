@@ -44,19 +44,69 @@
             <Label Content="Large buttons" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeDefaultStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeDefaultStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeDefaultStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeDefaultStyle}" IsEnabled="False" />
+
                 <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargePrimaryStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargePrimaryStyle}" IsEnabled="False" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargePrimaryStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargePrimaryStyle}" IsEnabled="False" />
+
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeSuccessStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeSuccessStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeSuccessStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeSuccessStyle}" IsEnabled="False" />
+
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeDangerStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeDangerStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeDangerStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeDangerStyle}" IsEnabled="False" />
+
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeWarningStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeWarningStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeWarningStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeWarningStyle}" IsEnabled="False" />
+
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeInfoStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeInfoStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeInfoStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeInfoStyle}" IsEnabled="False" />
             </UniformGrid>
 
             <Label Content="Small buttons" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallDefaultStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallDefaultStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallDefaultStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallDefaultStyle}" IsEnabled="False" />
+
                 <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallPrimaryStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallPrimaryStyle}" IsEnabled="False" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallPrimaryStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallPrimaryStyle}" IsEnabled="False" />
+
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallSuccessStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallSuccessStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallSuccessStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallSuccessStyle}" IsEnabled="False" />
+
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallDangerStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallDangerStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallDangerStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallDangerStyle}" IsEnabled="False" />
+
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallWarningStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallWarningStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallWarningStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallWarningStyle}" IsEnabled="False" />
+
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallInfoStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallInfoStyle}" IsEnabled="False" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallInfoStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallInfoStyle}" IsEnabled="False" />
             </UniformGrid>
         </StackPanel>
     </ScrollViewer>

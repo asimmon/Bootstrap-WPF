@@ -1,0 +1,316 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ds="clr-namespace:DesignSystem">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="./Variables.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="ButtonMediumDefaultStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusBase}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeBase}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontFamilyBase}" />
+        <Setter Property="TextBlock.LineHeight" Value="20" />
+        <Setter Property="Padding" Value="12,8,12,4" />
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Setter Property="Background" Value="#FFFFFFFF" />
+        <Setter Property="BorderBrush" Value="#FFCCCCCC" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="PART_Root" UseLayoutRounding="True" SnapsToDevicePixels="True">
+                        <Grid.Resources>
+                            <SolidColorBrush x:Key="BackgroundHover" Color="{Binding Background.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=10, Mode=OneTime}" />
+                            <SolidColorBrush x:Key="BorderBrushHover" Color="{Binding BorderBrush.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=12, Mode=OneTime}" />
+                            <SolidColorBrush x:Key="BackgroundPressed" Color="{Binding Background.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=17, Mode=OneTime}" />
+                            <SolidColorBrush x:Key="BorderBrushPressed" Color="{Binding BorderBrush.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=25, Mode=OneTime}" />
+                        </Grid.Resources>
+
+                        <Border
+                            x:Name="PART_Background"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}"
+                            Background="{TemplateBinding Background}" />
+
+                        <Border
+                            x:Name="PART_Border"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}" />
+
+                        <ContentPresenter
+                            TextBlock.Foreground="{TemplateBinding Foreground}"
+                            TextBlock.LineHeight="{TemplateBinding TextBlock.LineHeight}"
+                            TextBlock.FontSize="{TemplateBinding FontSize}"
+                            TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                            TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}" />
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Background" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource BackgroundHover}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Border" Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource BorderBrushHover}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Background" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource BackgroundPressed}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Border" Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource BorderBrushPressed}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_Root" Storyboard.TargetProperty="Opacity" To="0.6" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="_PartialButtonSmall" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="10,7,10,3" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
+        <Setter Property="TextBlock.LineHeight" Value="18" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
+    </Style>
+
+    <Style x:Key="_PartialButtonLarge" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="16,11,16,9" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="TextBlock.LineHeight" Value="24" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
+    </Style>
+
+    <!-- Button Medium -->
+
+    <Style x:Key="ButtonMediumPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandPrimaryBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+    </Style>
+
+    <Style x:Key="ButtonMediumSuccessStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandSuccessBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandSuccessBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+    </Style>
+
+    <Style x:Key="ButtonMediumDangerStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandDangerBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandDangerBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+    </Style>
+
+    <Style x:Key="ButtonMediumInfoStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandInfoBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandInfoBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+    </Style>
+
+    <Style x:Key="ButtonMediumWarningStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{StaticResource BrandWarningBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={StaticResource BrandWarningBrush}, Converter={StaticResource BrushDarkenConverter}, ConverterParameter=5, Mode=OneTime}" />
+    </Style>
+
+    <!-- LinkButton Medium -->
+
+    <Style x:Key="LinkButtonMediumDefaultStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}">
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style x:Key="LinkButtonMediumPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="{StaticResource BrandPrimaryBrush}" />
+    </Style>
+
+    <Style x:Key="LinkButtonMediumSuccessStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="{StaticResource BrandSuccessBrush}" />
+    </Style>
+
+    <Style x:Key="LinkButtonMediumDangerStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="{StaticResource BrandDangerBrush}" />
+    </Style>
+
+    <Style x:Key="LinkButtonMediumInfoStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="{StaticResource BrandInfoBrush}" />
+    </Style>
+
+    <Style x:Key="LinkButtonMediumWarningStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource LinkButtonMediumDefaultStyle}">
+        <Setter Property="Foreground" Value="{StaticResource BrandWarningBrush}" />
+    </Style>
+
+    <!-- Button Large -->
+
+    <Style x:Key="ButtonLargeDefaultStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumDefaultStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonLargePrimaryStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumPrimaryStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonLargeSuccessStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumSuccessStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonLargeDangerStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumDangerStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonLargeInfoStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumInfoStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonLargeWarningStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumWarningStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <!-- LinkButton Large -->
+
+    <Style x:Key="LinkButtonLargeDefaultStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumDefaultStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonLargePrimaryStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumPrimaryStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonLargeSuccessStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumSuccessStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonLargeDangerStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumDangerStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonLargeInfoStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumInfoStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonLargeWarningStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumWarningStyle}" Style2="{StaticResource _PartialButtonLarge}" />
+        </Style.BasedOn>
+    </Style>
+
+    <!-- Button Small -->
+
+    <Style x:Key="ButtonSmallDefaultStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumDefaultStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonSmallPrimaryStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumPrimaryStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonSmallSuccessStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumSuccessStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonSmallDangerStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumDangerStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonSmallInfoStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumInfoStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="ButtonSmallWarningStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource ButtonMediumWarningStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <!-- LinkButton Small -->
+
+    <Style x:Key="LinkButtonSmallDefaultStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumDefaultStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonSmallPrimaryStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumPrimaryStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonSmallSuccessStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumSuccessStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonSmallDangerStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumDangerStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonSmallInfoStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumInfoStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+    <Style x:Key="LinkButtonSmallWarningStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumWarningStyle}" Style2="{StaticResource _PartialButtonSmall}" />
+        </Style.BasedOn>
+    </Style>
+
+</ResourceDictionary>

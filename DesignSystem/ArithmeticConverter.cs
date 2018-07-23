@@ -28,15 +28,15 @@ namespace DesignSystem
             }
         }
 
-        private double TryCastToDouble(object value)
+        private static double TryCastToDouble(object value)
         {
             if (value is string && double.TryParse((string)value, out var doubleValue))
                 return doubleValue;
 
-            if (value is int || value is float || value is double)
+            if (value is int || value is float || value is double || value is decimal)
                 return (double)value;
 
-            throw new ArgumentException($"Could not cast {value} as a double");
+            throw new ArgumentException($"Could not cast '{value}' to a double");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
