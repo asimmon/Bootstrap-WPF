@@ -64,7 +64,7 @@
                             Margin="{TemplateBinding Padding}"
                             Content="{TemplateBinding Content}" />
 
-                            <VisualStateManager.VisualStateGroups>
+                        <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
@@ -180,154 +180,38 @@
 
     <!-- Button Large -->
 
-    <Style x:Key="ButtonLargeDefaultStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumDefaultStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonLargePrimaryStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumPrimaryStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonLargeSuccessStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumSuccessStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonLargeDangerStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumDangerStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonLargeInfoStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumInfoStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonLargeWarningStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumWarningStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
+    <Style x:Key="ButtonLargeDefaultStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumDefaultStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="ButtonLargePrimaryStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumPrimaryStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="ButtonLargeSuccessStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumSuccessStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="ButtonLargeDangerStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumDangerStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="ButtonLargeInfoStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumInfoStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="ButtonLargeWarningStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumWarningStyle}, Style2={StaticResource _PartialButtonLarge}}" />
 
     <!-- LinkButton Large -->
 
-    <Style x:Key="LinkButtonLargeDefaultStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumDefaultStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonLargePrimaryStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumPrimaryStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonLargeSuccessStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumSuccessStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonLargeDangerStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumDangerStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonLargeInfoStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumInfoStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonLargeWarningStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumWarningStyle}" Style2="{StaticResource _PartialButtonLarge}" />
-        </Style.BasedOn>
-    </Style>
+    <Style x:Key="LinkButtonLargeDefaultStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumDefaultStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="LinkButtonLargePrimaryStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumPrimaryStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="LinkButtonLargeSuccessStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumSuccessStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="LinkButtonLargeDangerStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumDangerStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="LinkButtonLargeInfoStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumInfoStyle}, Style2={StaticResource _PartialButtonLarge}}" />
+    <Style x:Key="LinkButtonLargeWarningStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumWarningStyle}, Style2={StaticResource _PartialButtonLarge}}" />
 
     <!-- Button Small -->
 
-    <Style x:Key="ButtonSmallDefaultStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumDefaultStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonSmallPrimaryStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumPrimaryStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonSmallSuccessStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumSuccessStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonSmallDangerStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumDangerStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonSmallInfoStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumInfoStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="ButtonSmallWarningStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource ButtonMediumWarningStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
+    <Style x:Key="ButtonSmallDefaultStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumDefaultStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="ButtonSmallPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumPrimaryStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="ButtonSmallSuccessStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumSuccessStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="ButtonSmallDangerStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumDangerStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="ButtonSmallInfoStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumInfoStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="ButtonSmallWarningStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource ButtonMediumWarningStyle}, Style2={StaticResource _PartialButtonSmall}}" />
 
     <!-- LinkButton Small -->
 
-    <Style x:Key="LinkButtonSmallDefaultStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumDefaultStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonSmallPrimaryStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumPrimaryStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonSmallSuccessStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumSuccessStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonSmallDangerStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumDangerStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonSmallInfoStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumInfoStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
-
-    <Style x:Key="LinkButtonSmallWarningStyle" TargetType="{x:Type Button}">
-        <Style.BasedOn>
-            <ds:MergedStyle Style1="{StaticResource LinkButtonMediumWarningStyle}" Style2="{StaticResource _PartialButtonSmall}" />
-        </Style.BasedOn>
-    </Style>
+    <Style x:Key="LinkButtonSmallDefaultStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumDefaultStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="LinkButtonSmallPrimaryStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumPrimaryStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="LinkButtonSmallSuccessStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumSuccessStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="LinkButtonSmallDangerStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumDangerStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="LinkButtonSmallInfoStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumInfoStyle}, Style2={StaticResource _PartialButtonSmall}}" />
+    <Style x:Key="LinkButtonSmallWarningStyle" TargetType="{x:Type Button}" BasedOn="{ds:MergedStyle Style1={StaticResource LinkButtonMediumWarningStyle}, Style2={StaticResource _PartialButtonSmall}}" />
 
 </ResourceDictionary>
