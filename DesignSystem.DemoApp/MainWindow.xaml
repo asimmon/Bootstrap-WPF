@@ -12,13 +12,13 @@
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
                 <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" GroupName="Radios1" />
                 <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" GroupName="Radios1" IsChecked="True" />
-                <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" GroupName="Radios1" Foreground="DodgerBlue" />
+                <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" GroupName="Radios1" Foreground="{StaticResource BrandPrimaryBrush}" />
                 <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" GroupName="Radios1" Content="Some label" />
 
                 <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" IsEnabled="False" GroupName="Radios2" />
-                <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" IsEnabled="False" GroupName="Radios2" IsChecked="True" />
-                <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" IsEnabled="False" GroupName="Radios2" Foreground="DodgerBlue" />
-                <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" IsEnabled="False" GroupName="Radios2" Content="Some label" />
+                <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" IsEnabled="False" GroupName="Radios3" IsChecked="True" />
+                <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" IsEnabled="False" GroupName="Radios4" IsChecked="True" Foreground="{StaticResource BrandPrimaryBrush}" />
+                <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" IsEnabled="False" GroupName="Radios5" Content="Some label" />
             </UniformGrid>
 
             <Label Content="Medium buttons" HorizontalContentAlignment="Center" />
