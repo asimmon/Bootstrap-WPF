@@ -3,38 +3,60 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="DesignSystem demo" Height="640" Width="800"
+        xmlns:ds="clr-namespace:DesignSystem;assembly=DesignSystem"
+        Title="DesignSystem demo" Height="640" Width="920"
         mc:Ignorable="d">
     <ScrollViewer Padding="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <StackPanel>
             <Label Content="Medium textboxes" HorizontalContentAlignment="Center" />
 
-            <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
-                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="120" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="120" Text="Hello world" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="120" Text="Hello world" BorderBrush="{StaticResource BrandPrimaryBrush}" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="120" Text="Hello world" IsEnabled="False" />
+            <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" ds:WatermarkService.Watermark="Watermark" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" Text="Some text" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" Text="Disabled" IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" Text="Disabled water." IsEnabled="False" />
+
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" ds:WatermarkService.Watermark="Watermark" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" Text="Some text" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" Text="Disabled" IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" Text="Disabled water." IsEnabled="False" />
             </UniformGrid>
 
-            <Label Content="Large textboxes" HorizontalContentAlignment="Center" />
+            <Label Content="Large textboxes" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
-            <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
-                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="140" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="140" Text="Hello world" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="140" Text="Hello world" BorderBrush="{StaticResource BrandPrimaryBrush}" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="140" Text="Hello world" IsEnabled="False" />
+            <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="160" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="160" ds:WatermarkService.Watermark="Watermark" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="160" Text="Some text" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="160" Text="Disabled" IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="160" Text="Disabled water." IsEnabled="False" />
+
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="160" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="160" ds:WatermarkService.Watermark="Watermark" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="160" Text="Some text" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="160" Text="Disabled" IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="160" Text="Disabled water." IsEnabled="False" />
             </UniformGrid>
 
-            <Label Content="Small textboxes" HorizontalContentAlignment="Center" />
+            <Label Content="Small textboxes" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
-            <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
-                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="100" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="100" Text="Hello world" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="100" Text="Hello world" BorderBrush="{StaticResource BrandPrimaryBrush}" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="100" Text="Hello world" IsEnabled="False" />
+            <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" ds:WatermarkService.Watermark="Watermark" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" Text="Some text" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" Text="Disabled" IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" Text="Disabled water." IsEnabled="False" />
+
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" ds:WatermarkService.Watermark="Watermark" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" Text="Some text" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" Text="Disabled" IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" Text="Disabled water." IsEnabled="False" />
             </UniformGrid>
 
-            <Label Content="Checkboxes" HorizontalContentAlignment="Center" />
+            <Label Content="Checkboxes" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
                 <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" />
@@ -48,7 +70,7 @@
                 <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" IsEnabled="False" Content="Some label" />
             </UniformGrid>
 
-            <Label Content="Radio buttons" HorizontalContentAlignment="Center" />
+            <Label Content="Radio buttons" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
                 <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" GroupName="Radios1" />
@@ -62,10 +84,10 @@
                 <RadioButton Margin="5" Style="{StaticResource RadioButtonStyle}" IsEnabled="False" GroupName="Radios5" Content="Some label" />
             </UniformGrid>
 
-            <Label Content="Medium buttons" HorizontalContentAlignment="Center" />
+            <Label Content="Medium buttons" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
-                <Button Content="Hello world" Margin="5" Style="{StaticResource ButtonMediumDefaultStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonMediumDefaultStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource ButtonMediumDefaultStyle}" IsEnabled="False" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonMediumDefaultStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonMediumDefaultStyle}" IsEnabled="False" />
@@ -99,7 +121,7 @@
             <Label Content="Large buttons" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
-                <Button Content="Hello world" Margin="5" Style="{StaticResource ButtonLargeDefaultStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeDefaultStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource ButtonLargeDefaultStyle}" IsEnabled="False" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeDefaultStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonLargeDefaultStyle}" IsEnabled="False" />
@@ -133,7 +155,7 @@
             <Label Content="Small buttons" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
-                <Button Content="Hello world" Margin="5" Style="{StaticResource ButtonSmallDefaultStyle}" />
+                <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallDefaultStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource ButtonSmallDefaultStyle}" IsEnabled="False" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallDefaultStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallDefaultStyle}" IsEnabled="False" />
@@ -181,6 +203,66 @@
         </StackPanel>
     </ScrollViewer>
 </Window>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

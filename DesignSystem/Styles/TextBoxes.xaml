@@ -5,9 +5,54 @@
     xmlns:ds="clr-namespace:DesignSystem">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="./Variables.xaml" />
+        <ResourceDictionary Source="./TextBlocks.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style x:Key="TextBoxWatermarkMediumStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockMedium}">
+        <Setter Property="Padding" Value="14,9,12,5" />
+        <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+        <Setter Property="LineHeight" Value="{Binding Source={StaticResource FontSizeBase}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorMedium}, Mode=OneTime}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Opacity" Value="0.5" />
+    </Style>
+
+    <Style x:Key="TextBoxWatermarkMediumPresenterStyle" TargetType="{x:Type ContentPresenter}">
+        <Style.Resources>
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBoxWatermarkMediumStyle}" />
+        </Style.Resources>
+    </Style>
+
+    <Style x:Key="TextBoxWatermarkLargePresenterStyle" TargetType="{x:Type ContentPresenter}">
+        <Style.Resources>
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{ds:MergedStyle Style1={StaticResource TextBoxWatermarkMediumStyle}, Style2={StaticResource TextBlockLarge}}">
+                <Setter Property="Padding" Value="18,12,16,10" />
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style x:Key="TextBoxWatermarkSmallPresenterStyle" TargetType="{x:Type ContentPresenter}">
+        <Style.Resources>
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{ds:MergedStyle Style1={StaticResource TextBoxWatermarkMediumStyle}, Style2={StaticResource TextBlockSmall}}">
+                <Setter Property="Padding" Value="12,8,10,4" />
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <DataTemplate x:Key="TextBoxWatermarkMediumPresenter">
+        <ContentPresenter Style="{StaticResource TextBoxWatermarkMediumPresenterStyle}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="TextBoxWatermarkLargePresenter">
+        <ContentPresenter Style="{StaticResource TextBoxWatermarkLargePresenterStyle}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="TextBoxWatermarkSmallPresenter">
+        <ContentPresenter Style="{StaticResource TextBoxWatermarkSmallPresenterStyle}" />
+    </DataTemplate>
+
     <Style x:Key="TextBoxMediumDefaultStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Setter Property="ds:WatermarkService.WatermarkDataTemplate" Value="{StaticResource TextBoxWatermarkMediumPresenter}" />
+
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="FontWeight" Value="Regular" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeBase}" />
@@ -36,15 +81,21 @@
                         <Border
                             x:Name="PART_Background"
                             CornerRadius="{TemplateBinding Border.CornerRadius}"
-                            Background="{TemplateBinding Background}" />
+                            Background="{TemplateBinding Background}">
+                        </Border>
 
                         <Border
                             x:Name="PART_Border"
                             CornerRadius="{TemplateBinding Border.CornerRadius}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            BorderBrush="{TemplateBinding BorderBrush}" />
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            ClipToBounds="True">
+                            <Border.Effect>
+                                <DropShadowEffect Opacity=".075" Color="Black" BlurRadius="1" ShadowDepth="1" RenderingBias="Performance" />
+                            </Border.Effect>
+                        </Border>
 
-                        <ScrollViewer x:Name="PART_ContentHost" Margin="0" />
+                        <ScrollViewer x:Name="PART_ContentHost" Margin="0" BorderThickness="0" Padding="0" />
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -77,6 +128,8 @@
     </Style>
 
     <Style x:Key="TextBoxLargeDefaultStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxMediumDefaultStyle}">
+        <Setter Property="ds:WatermarkService.WatermarkDataTemplate" Value="{StaticResource TextBoxWatermarkLargePresenter}" />
+        
         <Setter Property="Padding" Value="16,12,16,10" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeLarge}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}, Mode=OneTime}" />
@@ -84,6 +137,8 @@
     </Style>
 
     <Style x:Key="TextBoxSmallDefaultStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxMediumDefaultStyle}">
+        <Setter Property="ds:WatermarkService.WatermarkDataTemplate" Value="{StaticResource TextBoxWatermarkSmallPresenter}" />
+
         <Setter Property="Padding" Value="10,8,10,4" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
         <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeSmall}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorSmall}, Mode=OneTime}" />
@@ -91,6 +146,14 @@
     </Style>
 
 </ResourceDictionary>
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

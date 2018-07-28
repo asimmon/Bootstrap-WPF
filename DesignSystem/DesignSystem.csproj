@@ -103,6 +103,8 @@
     <Compile Include="Styles\TextBoxes.xaml.cs">
       <DependentUpon>TextBoxes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WatermarkAdorner.cs" />
+    <Compile Include="WatermarkService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
