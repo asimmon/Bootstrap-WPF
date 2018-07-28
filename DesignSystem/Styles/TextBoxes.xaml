@@ -88,12 +88,7 @@
                             x:Name="PART_Border"
                             CornerRadius="{TemplateBinding Border.CornerRadius}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            ClipToBounds="True">
-                            <Border.Effect>
-                                <DropShadowEffect Opacity=".075" Color="Black" BlurRadius="1" ShadowDepth="1" RenderingBias="Performance" />
-                            </Border.Effect>
-                        </Border>
+                            BorderBrush="{TemplateBinding BorderBrush}" />
 
                         <ScrollViewer x:Name="PART_ContentHost" Margin="0" BorderThickness="0" Padding="0" />
 
@@ -146,6 +141,22 @@
     </Style>
 
 </ResourceDictionary>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
