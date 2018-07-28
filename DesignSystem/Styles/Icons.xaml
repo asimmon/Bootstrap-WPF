@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate x:Key="Icon_CheckBox_Checkmark" TargetType="{x:Type ContentControl}">
+        <Viewbox Width="16.000" Height="16.000">
+            <Canvas Width="16.000" Height="16.000">
+                <Path Fill="{TemplateBinding Foreground}">
+                    <Path.Data>
+                        <PathGeometry Figures="M7.4393 11.0103 C7.0483 11.4013 6.4153 11.4013 6.0253 11.0103 L3.4893 8.4753 C3.0993 8.0843 3.0993 7.4513 3.4893 7.0603 C3.8803 6.6703 4.5133 6.6703 4.9033 7.0603 L6.7323 8.8893 L11.0963 4.5253 C11.4863 4.1343 12.1193 4.1343 12.5103 4.5253 C12.9013 4.9153 12.9013 5.5483 12.5103 5.9393 L7.4393 11.0103 Z" FillRule="NonZero" />
+                    </Path.Data>
+                </Path>
+            </Canvas>
+        </Viewbox>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="Icon_CheckBox_Indeterminate" TargetType="{x:Type ContentControl}">
+        <Viewbox Width="16.000" Height="16.000">
+            <Canvas Width="16.000" Height="16.000">
+                <Rectangle Canvas.Left="4" Canvas.Top="7" Width="8" Height="2" RadiusX="1" RadiusY="1" Fill="{TemplateBinding Foreground}" />
+            </Canvas>
+        </Viewbox>
+    </ControlTemplate>
+
+</ResourceDictionary>

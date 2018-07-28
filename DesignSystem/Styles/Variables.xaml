@@ -54,6 +54,10 @@
     <sys:Double x:Key="LineHeightFactorLarge">1.3333333</sys:Double>
     <sys:Double x:Key="LineHeightFactorSmall">1.5</sys:Double>
 
+    <FontFamily x:Key="FontFamilyHeadings">Arial</FontFamily>
+    <sys:Double x:Key="LineHeightFactorHeadings">1.1</sys:Double>
+    <FontWeight x:Key="FontWeightHeadings">SemiBold</FontWeight>
+
     <!-- Components -->
 
     <sys:Double x:Key="PaddingBaseVertical">6</sys:Double>

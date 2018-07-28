@@ -7,6 +7,20 @@
         Title="MainWindow" Height="640" Width="800">
     <ScrollViewer Padding="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <StackPanel>
+            <Label Content="Checkboxes" HorizontalContentAlignment="Center" />
+
+            <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" />
+                <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" IsChecked="True" />
+                <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" Foreground="{StaticResource BrandPrimaryBrush}" />
+                <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" Content="Some label" />
+
+                <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" IsEnabled="False" />
+                <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" IsEnabled="False" IsChecked="True" />
+                <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" IsEnabled="False" IsChecked="True" Foreground="{StaticResource BrandPrimaryBrush}" />
+                <CheckBox Margin="5" Style="{StaticResource CheckBoxStyle}" IsEnabled="False" Content="Some label" />
+            </UniformGrid>
+
             <Label Content="Radio buttons" HorizontalContentAlignment="Center" />
 
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
@@ -122,6 +136,21 @@
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallInfoStyle}" />
                 <Button Content="Something" Margin="5" Style="{StaticResource LinkButtonSmallInfoStyle}" IsEnabled="False" />
             </UniformGrid>
+
+            <Label Content="Typography" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <TextBlock Text="Heading H1" Margin="5" Style="{StaticResource TextBlockH1Style}" />
+                <TextBlock Text="Heading H2" Margin="5" Style="{StaticResource TextBlockH2Style}" />
+                <TextBlock Text="Heading H3" Margin="5" Style="{StaticResource TextBlockH3Style}" />
+                <TextBlock Text="Heading H4" Margin="5" Style="{StaticResource TextBlockH4Style}" />
+                <TextBlock Text="Heading H5" Margin="5" Style="{StaticResource TextBlockH5Style}" />
+                <TextBlock Text="Heading H6" Margin="5" Style="{StaticResource TextBlockH6Style}" />
+
+                <TextBlock Text="This is a large TextBlock" Margin="5,25,5,5" Style="{StaticResource TextBlockLarge}" />
+                <TextBlock Text="This is a medium TextBlock" Margin="5" Style="{StaticResource TextBlockMedium}" />
+                <TextBlock Text="This is a small TextBlock" Margin="5" Style="{StaticResource TextBlockSmall}" />
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </Window>
