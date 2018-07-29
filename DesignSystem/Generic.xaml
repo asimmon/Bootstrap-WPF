@@ -8,6 +8,7 @@
         <ResourceDictionary Source="Styles/RadioButtons.xaml" />
         <ResourceDictionary Source="Styles/CheckBoxes.xaml" />
         <ResourceDictionary Source="Styles/TextBoxes.xaml" />
+        <ResourceDictionary Source="Styles/ScrollViewer.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonMediumDefaultStyle}" />

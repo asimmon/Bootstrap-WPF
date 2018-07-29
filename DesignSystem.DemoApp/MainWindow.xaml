@@ -6,7 +6,7 @@
         xmlns:ds="clr-namespace:DesignSystem;assembly=DesignSystem"
         Title="DesignSystem demo" Height="640" Width="920"
         mc:Ignorable="d">
-    <ScrollViewer Padding="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+    <ScrollViewer Padding="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
         <StackPanel>
             <Label Content="Medium password boxes" HorizontalContentAlignment="Center" />
 
@@ -247,6 +247,28 @@
                 <TextBlock Text="This is a large TextBlock" Margin="5,25,5,5" Style="{StaticResource TextBlockLarge}" />
                 <TextBlock Text="This is a medium TextBlock" Margin="5" Style="{StaticResource TextBlockMedium}" />
                 <TextBlock Text="This is a small TextBlock" Margin="5" Style="{StaticResource TextBlockSmall}" />
+            </StackPanel>
+
+            <Label Content="Scrollbars" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <Border Width="200" Height="200" Background="LightGray" Margin="5">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                        <Border Width="100" Height="300"></Border>
+                    </ScrollViewer>
+                </Border>
+
+                <Border Width="200" Height="200" Background="LightGray" Margin="5">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                        <Border Width="300" Height="100"></Border>
+                    </ScrollViewer>
+                </Border>
+
+                <Border Width="200" Height="200" Background="LightGray" Margin="5">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                        <Border Width="300" Height="300"></Border>
+                    </ScrollViewer>
+                </Border>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

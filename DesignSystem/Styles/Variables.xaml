@@ -9,7 +9,7 @@
     <ds:SolidColorBrushLightnessConverter LightnessVariation="Lighten" x:Key="BrushLightenConverter" />
     <ds:SolidColorBrushLightnessConverter LightnessVariation="Darken" x:Key="BrushDarkenConverter" />
 
-    <ds:ArithmeticConverter Operation="Multiplication" ResultTransform="Round" x:Key="LineHeightMultiplierConverter" />
+    <ds:ArithmeticConverter Operation="Multiplication" ResultTransform="Round" x:Key="RoundedMultiplicationConverter" />
 
     <!-- Colors -->
 

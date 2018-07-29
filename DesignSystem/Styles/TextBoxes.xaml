@@ -11,7 +11,7 @@
     <Style x:Key="TextBoxWatermarkMediumStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockMedium}">
         <Setter Property="Padding" Value="14,9,12,5" />
         <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
-        <Setter Property="LineHeight" Value="{Binding Source={StaticResource FontSizeBase}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorMedium}, Mode=OneTime}" />
+        <Setter Property="LineHeight" Value="{Binding Source={StaticResource FontSizeBase}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorMedium}, Mode=OneTime}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Opacity" Value="0.5" />
     </Style>
@@ -57,7 +57,7 @@
         <Setter Property="FontWeight" Value="Regular" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeBase}" />
         <Setter Property="FontFamily" Value="{StaticResource FontFamilyBase}" />
-        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeBase}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorMedium}, Mode=OneTime}" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeBase}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorMedium}, Mode=OneTime}" />
         <Setter Property="Padding" Value="12,9,12,5" />
         <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
         <Setter Property="Background" Value="#FFFFFFFF" />
@@ -129,7 +129,7 @@
 
         <Setter Property="Padding" Value="16,12,16,10" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeLarge}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}, Mode=OneTime}" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeLarge}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}, Mode=OneTime}" />
         <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
     </Style>
 
@@ -138,7 +138,7 @@
 
         <Setter Property="Padding" Value="10,8,10,4" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
-        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeSmall}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorSmall}, Mode=OneTime}" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeSmall}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorSmall}, Mode=OneTime}" />
         <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
     </Style>
 
@@ -153,7 +153,7 @@
 
         <Setter Property="Padding" Value="16,12,16,10" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeLarge}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}, Mode=OneTime}" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeLarge}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}, Mode=OneTime}" />
         <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
     </Style>
 
@@ -162,7 +162,7 @@
 
         <Setter Property="Padding" Value="10,8,10,4" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
-        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeSmall}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorSmall}, Mode=OneTime}" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeSmall}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorSmall}, Mode=OneTime}" />
         <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
     </Style>
 
