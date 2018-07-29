@@ -50,7 +50,7 @@
         <ContentPresenter Style="{StaticResource TextBoxWatermarkSmallPresenterStyle}" />
     </DataTemplate>
 
-    <Style x:Key="TextBoxMediumDefaultStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+    <Style x:Key="BaseTextBoxMediumDefaultStyle" TargetType="{x:Type Control}">
         <Setter Property="ds:WatermarkService.WatermarkDataTemplate" Value="{StaticResource TextBoxWatermarkMediumPresenter}" />
 
         <Setter Property="BorderThickness" Value="1" />
@@ -69,7 +69,7 @@
 
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
+                <ControlTemplate TargetType="{x:Type Control}">
                     <Grid x:Name="PART_Root" Background="Transparent">
                         <Grid.Resources>
                             <SolidColorBrush x:Key="BackgroundHover" Color="{Binding Background.(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorDarkenConverter}, ConverterParameter=10, Mode=OneTime}" />
@@ -122,9 +122,11 @@
         </Setter>
     </Style>
 
+    <Style x:Key="TextBoxMediumDefaultStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseTextBoxMediumDefaultStyle}" />
+
     <Style x:Key="TextBoxLargeDefaultStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxMediumDefaultStyle}">
         <Setter Property="ds:WatermarkService.WatermarkDataTemplate" Value="{StaticResource TextBoxWatermarkLargePresenter}" />
-        
+
         <Setter Property="Padding" Value="16,12,16,10" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeLarge}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}, Mode=OneTime}" />
@@ -132,6 +134,30 @@
     </Style>
 
     <Style x:Key="TextBoxSmallDefaultStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxMediumDefaultStyle}">
+        <Setter Property="ds:WatermarkService.WatermarkDataTemplate" Value="{StaticResource TextBoxWatermarkSmallPresenter}" />
+
+        <Setter Property="Padding" Value="10,8,10,4" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeSmall}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorSmall}, Mode=OneTime}" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusSmall}" />
+    </Style>
+
+    <Style x:Key="PasswordBoxMediumDefaultStyle" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseTextBoxMediumDefaultStyle}">
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="PasswordChar" Value="●" />
+    </Style>
+
+    <Style x:Key="PasswordBoxLargeDefaultStyle" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource PasswordBoxMediumDefaultStyle}">
+        <Setter Property="ds:WatermarkService.WatermarkDataTemplate" Value="{StaticResource TextBoxWatermarkLargePresenter}" />
+
+        <Setter Property="Padding" Value="16,12,16,10" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="TextBlock.LineHeight" Value="{Binding Source={StaticResource FontSizeLarge}, Converter={StaticResource LineHeightMultiplierConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}, Mode=OneTime}" />
+        <Setter Property="Border.CornerRadius" Value="{StaticResource BorderRadiusLarge}" />
+    </Style>
+
+    <Style x:Key="PasswordBoxSmallDefaultStyle" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource PasswordBoxMediumDefaultStyle}">
         <Setter Property="ds:WatermarkService.WatermarkDataTemplate" Value="{StaticResource TextBoxWatermarkSmallPresenter}" />
 
         <Setter Property="Padding" Value="10,8,10,4" />

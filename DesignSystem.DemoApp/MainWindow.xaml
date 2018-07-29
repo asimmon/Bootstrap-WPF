@@ -8,20 +8,68 @@
         mc:Ignorable="d">
     <ScrollViewer Padding="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <StackPanel>
-            <Label Content="Medium textboxes" HorizontalContentAlignment="Center" />
+            <Label Content="Medium password boxes" HorizontalContentAlignment="Center" />
+
+            <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" Width="130" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" Width="130" ds:WatermarkService.Watermark="Watermark" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" Width="130" Password="Some text" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" Width="130" Password="Disabled" IsEnabled="False" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" Width="130" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
+
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" ds:WatermarkService.Watermark="Watermark" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" Password="Some text" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" Password="Disabled" IsEnabled="False" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
+            </UniformGrid>
+
+            <Label Content="Large password boxes" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
+
+            <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" Width="150" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" Width="150" ds:WatermarkService.Watermark="Watermark" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" Width="150" Password="Some text" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" Width="150" Password="Disabled" IsEnabled="False" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" Width="150" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
+
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" ds:WatermarkService.Watermark="Watermark" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" Password="Some text" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" Password="Disabled" IsEnabled="False" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
+            </UniformGrid>
+
+            <Label Content="Small password boxes" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
+
+            <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" Width="110" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" Width="110" ds:WatermarkService.Watermark="Watermark" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" Width="110" Password="Some text" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" Width="110" Password="Disabled" IsEnabled="False" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" Width="110" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
+
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" ds:WatermarkService.Watermark="Watermark" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" Password="Some text" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" Password="Disabled" IsEnabled="False" />
+                <PasswordBox Margin="5" Style="{StaticResource PasswordBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
+            </UniformGrid>
+
+            <Label Content="Medium textboxes" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
             <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
                 <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" ds:WatermarkService.Watermark="Watermark" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" Text="Some text" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" Text="Disabled" IsEnabled="False" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" Text="Disabled water." IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" Width="130" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
 
                 <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" ds:WatermarkService.Watermark="Watermark" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" Text="Some text" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" Text="Disabled" IsEnabled="False" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" Text="Disabled water." IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxMediumDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="130" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
             </UniformGrid>
 
             <Label Content="Large textboxes" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
@@ -31,13 +79,13 @@
                 <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="150" ds:WatermarkService.Watermark="Watermark" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="150" Text="Some text" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="150" Text="Disabled" IsEnabled="False" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="150" Text="Watermark" IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" Width="150" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
 
                 <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" ds:WatermarkService.Watermark="Watermark" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" Text="Some text" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" Text="Disabled" IsEnabled="False" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" Text="Watermark" IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxLargeDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="150" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
             </UniformGrid>
 
             <Label Content="Small textboxes" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
@@ -47,7 +95,7 @@
                 <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" ds:WatermarkService.Watermark="Watermark" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" Text="Some text" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" Text="Disabled" IsEnabled="False" />
-                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" Text="Disabled water." IsEnabled="False" />
+                <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" Width="110" ds:WatermarkService.Watermark="Watermark" IsEnabled="False" />
 
                 <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" />
                 <TextBox Margin="5" Style="{StaticResource TextBoxSmallDefaultStyle}" BorderBrush="{StaticResource BrandPrimaryBrush}" Width="110" ds:WatermarkService.Watermark="Watermark" />
