@@ -6,8 +6,8 @@
         xmlns:ds="clr-namespace:DesignSystem;assembly=DesignSystem"
         Title="DesignSystem demo" Height="640" Width="920"
         mc:Ignorable="d">
-    <ScrollViewer Padding="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
-        <StackPanel>
+    <ScrollViewer Padding="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}" Focusable="False">
+        <StackPanel Focusable="False">
             <Label Content="Medium password boxes" HorizontalContentAlignment="Center" />
 
             <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
