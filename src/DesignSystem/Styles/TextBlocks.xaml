@@ -8,7 +8,7 @@
         <Setter Property="FontWeight" Value="Regular" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeBase}" />
         <Setter Property="FontFamily" Value="{StaticResource FontFamilyHeadings}" />
-        <Setter Property="LineHeight" Value="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorMedium}}" />
+        <Setter Property="LineHeight" Value="{Binding FontSize, RelativeSource={RelativeSource Self}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorMedium}}" />
         <Setter Property="Foreground" Value="{StaticResource TextColorBrush}" />
     </Style>
 
@@ -16,18 +16,16 @@
 
     <Style x:Key="TextBlockSmall" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource _BaseTextBlockStyle}">
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
-        <Setter Property="LineHeight" Value="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorSmall}}" />
-
+        <Setter Property="LineHeight" Value="{Binding FontSize, RelativeSource={RelativeSource Self}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorSmall}}" />
     </Style>
 
     <Style x:Key="TextBlockLarge" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource _BaseTextBlockStyle}">
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="LineHeight" Value="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}}" />
-
+        <Setter Property="LineHeight" Value="{Binding FontSize, RelativeSource={RelativeSource Self}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorLarge}}" />
     </Style>
 
     <Style x:Key="_BaseTextBlockHeaderStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource _BaseTextBlockStyle}">
-        <Setter Property="LineHeight" Value="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorHeadings}}" />
+        <Setter Property="LineHeight" Value="{Binding FontSize, RelativeSource={RelativeSource Self}, Converter={StaticResource RoundedMultiplicationConverter}, ConverterParameter={StaticResource LineHeightFactorHeadings}}" />
         <Setter Property="FontWeight" Value="{StaticResource FontWeightHeadings}" />
     </Style>
 

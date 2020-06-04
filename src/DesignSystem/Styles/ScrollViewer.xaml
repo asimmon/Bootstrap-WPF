@@ -10,10 +10,10 @@
     <system:Double x:Key="ScrollBarThumbSize">6</system:Double>
 
     <Style x:Key="ScrollBarPageRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
-        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Focusable" Value="false" />
-        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RepeatButton}">
@@ -28,7 +28,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Border Background="Transparent" Width="{StaticResource ScrollBarTrackSize}">
-                        <Border x:Name="Thumb" CornerRadius="3" Background="{TemplateBinding Background}" Width="{StaticResource ScrollBarThumbSize}"/>
+                        <Border x:Name="Thumb" CornerRadius="3" Background="{TemplateBinding Background}" Width="{StaticResource ScrollBarThumbSize}" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -40,7 +40,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Border Background="Transparent" Height="{StaticResource ScrollBarTrackSize}">
-                        <Border CornerRadius="2" Background="{TemplateBinding Background}" Height="{StaticResource ScrollBarThumbSize}"/>
+                        <Border CornerRadius="2" Background="{TemplateBinding Background}" Height="{StaticResource ScrollBarThumbSize}" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -58,9 +58,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollBar}">
                     <Border Background="{TemplateBinding Background}" CornerRadius="4">
-                        <Grid x:Name="Bg" Width="{StaticResource ScrollBarTrackSize}" Margin="0,8" SnapsToDevicePixels="true">
+                        <Grid x:Name="Bg" Width="{StaticResource ScrollBarTrackSize}" Margin="0,8" SnapsToDevicePixels="True">
                             <Border Margin="0" Width="6" Background="{TemplateBinding Background}" CornerRadius="3" />
-                            <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}">
+                            <Track x:Name="PART_Track" IsDirectionReversed="True" IsEnabled="{TemplateBinding IsMouseOver}">
                                 <Track.DecreaseRepeatButton>
                                     <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource ScrollBarPageRepeatButtonStyle}" />
                                 </Track.DecreaseRepeatButton>
@@ -88,7 +88,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ScrollBar}">
                             <Border Background="{TemplateBinding Background}" CornerRadius="4">
-                                <Grid x:Name="Bg" Height="{StaticResource ScrollBarTrackSize}" Margin="8,0" SnapsToDevicePixels="true">
+                                <Grid x:Name="Bg" Height="{StaticResource ScrollBarTrackSize}" Margin="8,0" SnapsToDevicePixels="True">
                                     <Border Margin="0" Height="6" Background="{TemplateBinding Background}" CornerRadius="3" />
                                     <Track x:Name="PART_Track" IsEnabled="{TemplateBinding IsMouseOver}">
                                         <Track.DecreaseRepeatButton>
@@ -111,48 +111,27 @@
     </Style>
 
     <Style x:Key="ScrollViewerStyle" TargetType="{x:Type ScrollViewer}">
-        <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                        <ScrollContentPresenter
-                            x:Name="PART_ScrollContentPresenter"
-                            Grid.Column="0"
-                            CanContentScroll="{TemplateBinding CanContentScroll}"
-                            CanHorizontallyScroll="False" 
-                            CanVerticallyScroll="False" 
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Content="{TemplateBinding Content}"
-                            Margin="{TemplateBinding Padding}" 
-                            Cursor="{TemplateBinding Cursor}"
-                            KeyboardNavigation.DirectionalNavigation="Local"/>
-                        <ScrollBar 
+                    <DockPanel Background="{TemplateBinding Background}">
+                        <ScrollBar
+                            DockPanel.Dock="Right"
                             Name="PART_VerticalScrollBar"
-                            Grid.Column="1"
-                            Grid.Row="0"
                             Margin="0,1"
                             Background="{TemplateBinding Background}"
                             Value="{TemplateBinding VerticalOffset}"
                             Maximum="{TemplateBinding ScrollableHeight}"
                             ViewportSize="{TemplateBinding ViewportHeight}"
                             Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-                            Style="{StaticResource ScrollBarStyle}"/>
-                        <ScrollBar 
-                            Grid.Row="1"
-                            Grid.Column="0"
+                            Style="{StaticResource ScrollBarStyle}" />
+
+                        <ScrollBar
+                            DockPanel.Dock="Bottom"
                             Name="PART_HorizontalScrollBar"
                             Orientation="Horizontal"
                             Margin="1,0"
@@ -161,8 +140,30 @@
                             Maximum="{TemplateBinding ScrollableWidth}"
                             ViewportSize="{TemplateBinding ViewportWidth}"
                             Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
-                            Style="{StaticResource ScrollBarStyle}"/>
-                    </Grid>
+                            Style="{StaticResource ScrollBarStyle}" />
+
+                        <Grid>
+                            <ScrollContentPresenter
+                                x:Name="PART_ScrollContentPresenter"
+                                CanContentScroll="{TemplateBinding CanContentScroll}"
+                                CanHorizontallyScroll="False"
+                                CanVerticallyScroll="False"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                Margin="{TemplateBinding Padding}"
+                                Cursor="{TemplateBinding Cursor}"
+                                KeyboardNavigation.DirectionalNavigation="Local" />
+
+                            <Rectangle x:Name="PART_Gradient" VerticalAlignment="Bottom" IsHitTestVisible="False" MaxHeight="40" Visibility="Hidden">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Offset="0" Color="Transparent" />
+                                        <GradientStop Offset="1" Color="White" />
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                    </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

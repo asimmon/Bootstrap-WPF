@@ -102,8 +102,10 @@
     </Compile>
     <Compile Include="ColorLightnessConverter.cs" />
     <Compile Include="HslColor.cs" />
+    <Compile Include="ScrollViewerService.cs" />
     <Compile Include="SolidColorBrushLightnessConverter.cs" />
     <Compile Include="StyleExtensions.cs" />
+    <Compile Include="VisualTreeHelperExtensions.cs" />
     <Compile Include="WatermarkAdorner.cs" />
     <Compile Include="WatermarkService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -6,8 +6,8 @@
         xmlns:ds="clr-namespace:DesignSystem;assembly=DesignSystem"
         Title="DesignSystem demo" Height="640" Width="920"
         mc:Ignorable="d">
-    <ScrollViewer Padding="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}" Focusable="False">
-        <StackPanel Focusable="False">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+        <StackPanel Focusable="False" Margin="20">
             <Label Content="Medium password boxes" HorizontalContentAlignment="Center" />
 
             <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
@@ -252,21 +252,27 @@
             <Label Content="Scrollbars" HorizontalContentAlignment="Center" Margin="0,20,0,0" />
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
-                <Border Width="200" Height="200" Background="LightGray" Margin="5">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
-                        <Border Width="100" Height="300"></Border>
+                <Border Width="250" Height="200" Margin="5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                        <Grid Width="200">
+                            <TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Arcu dictum varius duis at consectetur lorem. Lacinia at quis risus sed vulputate odio ut. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Nulla aliquet enim tortor at auctor." />
+                        </Grid>
                     </ScrollViewer>
                 </Border>
 
-                <Border Width="200" Height="200" Background="LightGray" Margin="5">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
-                        <Border Width="300" Height="100"></Border>
+                <Border Width="250" Height="200" Margin="5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}" ds:ScrollViewerService.ShowVerticalGradient="True">
+                        <Grid Width="200">
+                            <TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Arcu dictum varius duis at consectetur lorem. Lacinia at quis risus sed vulputate odio ut. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Nulla aliquet enim tortor at auctor." />
+                        </Grid>
                     </ScrollViewer>
                 </Border>
 
-                <Border Width="200" Height="200" Background="LightGray" Margin="5">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
-                        <Border Width="300" Height="300"></Border>
+                <Border Width="250" Height="200" Margin="5">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                        <Grid Width="400">
+                            <TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Arcu dictum varius duis at consectetur lorem. Lacinia at quis risus sed vulputate odio ut. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Nulla aliquet enim tortor at auctor." />
+                        </Grid>
                     </ScrollViewer>
                 </Border>
             </StackPanel>

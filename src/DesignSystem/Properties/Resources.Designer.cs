@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace DesignSystem.Properties {
+    using System;
     
     
     /// <summary>
@@ -37,7 +38,7 @@ namespace DesignSystem.Properties {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
-                if ((resourceMan == null)) {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DesignSystem.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
@@ -56,6 +57,24 @@ namespace DesignSystem.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ScrollViewer&apos;s gradient rectangle should have a positive MaxHeight set..
+        /// </summary>
+        internal static string ScrollViewerService_OnScrollViewerLoaded_GradientMaxHeightNotSet {
+            get {
+                return ResourceManager.GetString("ScrollViewerService_OnScrollViewerLoaded_GradientMaxHeightNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ScrollViewer&apos;s gradient rectangle was not found..
+        /// </summary>
+        internal static string ScrollViewerService_OnScrollViewerLoaded_GradientNotFound {
+            get {
+                return ResourceManager.GetString("ScrollViewerService_OnScrollViewerLoaded_GradientNotFound", resourceCulture);
             }
         }
     }
